@@ -20,11 +20,17 @@ jobs:
           java-version: '17'  # Adjust based on your project
 
       - name: Build Project (Maven)
-        run: mvn clean package 
+        run: mvn clean package -DskipTests=true  # If using Maven
 
       # - name: Build Project (Gradle)  # Uncomment this if using Gradle instead of Maven
       #   run: ./gradlew build -x test  
 
       - name: Execute Tests
         run: |
-          java -jar target/a_new-1.0.0-jar-with-dependencies.jar
+          java -jar target/your-test-suite.jar  # Update path based on build output
+
+      - name: Upload HTML Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: /home/runner/work/G4/G4/
