@@ -29,8 +29,12 @@ jobs:
         run: |
           java -jar target/your-test-suite.jar  # Update path based on build output
 
+      - name: Find the Latest Report Folder
+        id: find-report
+        run: echo "REPORT_PATH=$(ls -td /home/runner/work/G4/G4/*/ | head -1)" >> $GITHUB_ENV
+
       - name: Upload HTML Report as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: test-report
-          path: /home/runner/work/G4/G4/
+          path: ${{ env.REPORT_PATH }}
