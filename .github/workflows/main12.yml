@@ -27,4 +27,4 @@ jobs:
 
       - name: Execute Tests
         run: |
-          java -jar target/new.jar  # Update path based on build output
+          java -jar target/a_new-1.0.0-jar-with-dependencies.jar
